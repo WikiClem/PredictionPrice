@@ -10,16 +10,10 @@ https://www.data.gouv.fr/datasets/base-officielle-des-codes-postaux/    lien ver
 
 structure demandée
 
-projet_info/
-
-│── data/               
-
-│   ├── data_annee/
-
+projet_info/     
+│── data/                 
+│   ├── data_annee/    
 │   │   ├── dvf2014.csv
-
-│   │   ├── ...
-
-│   ├── 019HexaSmal/
-
-│── preprocess/  
+│   │   ├── ...     
+│   ├── 019HexaSmal/      
+│── preprocess/      
