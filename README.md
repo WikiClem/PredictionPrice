@@ -13,7 +13,7 @@ structure demandée
 projet_info/     
 │── data/                 
 │   ├── data_annee/    
-│   │   ├── dvf2014.csv
+│   │   ├── dvf2014.csv       
 │   │   ├── ...     
 │   ├── 019HexaSmal/      
 │── preprocess/      
