@@ -8,12 +8,16 @@ https://www.data.gouv.fr/datasets/indicateurs-immobiliers-par-commune-et-par-ann
 
 https://www.data.gouv.fr/datasets/base-officielle-des-codes-postaux/    lien vers la data des codes postaux
 
+      
 structure demandée
 
 projet_info/     
-│── data/                 
+├── data/                 
 │   ├── data_annee/    
 │   │   ├── dvf2014.csv       
 │   │   ├── ...     
 │   ├── 019HexaSmal/      
-│── preprocess/      
+├── preprocess.py/      
+├── util.py/      
+├── main.py/      
+├── requirement.txt/      
