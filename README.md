@@ -18,6 +18,6 @@ projet_info/
 │   │   ├── ...     
 │   ├── 019HexaSmal/      
 ├── preprocess.py/      
-├── util.py/      
+├── utils.py/      
 ├── main.py/      
 ├── requirement.txt/      
