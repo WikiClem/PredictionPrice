@@ -17,13 +17,14 @@ projet_info/
 │   ├── data_annee/    
 │   │   ├── dvf2014.csv       
 │   │   ├── ...     
-│   ├── 019HexaSmal.csv/      
-│   ├── departement-france.csv/      
-├── preprocess.py/      
-├── utils.py/      
-├── plot.py/       
-├── main.py/      
-├── requirement.txt/      
+│   ├── 019HexaSmal.csv      
+│   ├── departement-france.csv      
+│   ├── valeur-immobilier-1800-2020_cle2abd1f.xls      
+├── preprocess.py      
+├── utils.py      
+├── plot.py       
+├── main.py      
+├── requirement.txt      
 
 
 voici la data base de 200 ans utilisée pour la verification du fonctionnement des prédiction : https://www.data.gouv.fr/datasets/valeurs-immobilieres-economiques-et-financieres-de-1800-a-2020/
