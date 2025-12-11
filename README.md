@@ -24,3 +24,6 @@ projet_info/
 ├── plot.py/       
 ├── main.py/      
 ├── requirement.txt/      
+
+
+voici la data base de 200 ans utilisée pour la verification du fonctionnement des prédiction : https://www.data.gouv.fr/datasets/valeurs-immobilieres-economiques-et-financieres-de-1800-a-2020/
