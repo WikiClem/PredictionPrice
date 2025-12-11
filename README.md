@@ -21,5 +21,6 @@ projet_info/
 │   ├── departement-france.csv/      
 ├── preprocess.py/      
 ├── utils.py/      
+├── plot.py/       
 ├── main.py/      
 ├── requirement.txt/      
