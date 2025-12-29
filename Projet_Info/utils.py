@@ -17,34 +17,6 @@ import warnings  # Gestion des messages d'avertissement
 warnings.filterwarnings('ignore')  # Supprime les warnings pour un affichage plus propre
 
 
-def obtenir_nom_departement(code_dept):  # Fonction qui convertit code → nom
-    """Retourne le nom du département selon son code"""
-    noms_depts = {
-        '01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes-de-Haute-Provence', '05': 'Hautes-Alpes',
-        '06': 'Alpes-Maritimes', '07': 'Ardèche', '08': 'Ardennes', '09': 'Ariège', '10': 'Aube',
-        '11': 'Aude', '12': 'Aveyron', '13': 'Bouches-du-Rhône', '14': 'Calvados', '15': 'Cantal',
-        '16': 'Charente', '17': 'Charente-Maritime', '18': 'Cher', '19': 'Corrèze', '2A': 'Corse-du-Sud',
-        '2B': 'Haute-Corse', '21': 'Côte-d\'Or', '22': 'Côtes-d\'Armor', '23': 'Creuse', '24': 'Dordogne',
-        '25': 'Doubs', '26': 'Drôme', '27': 'Eure', '28': 'Eure-et-Loir', '29': 'Finistère',
-        '30': 'Gard', '31': 'Haute-Garonne', '32': 'Gers', '33': 'Gironde', '34': 'Hérault',
-        '35': 'Ille-et-Vilaine', '36': 'Indre', '37': 'Indre-et-Loire', '38': 'Isère', '39': 'Jura',
-        '40': 'Landes', '41': 'Loir-et-Cher', '42': 'Loire', '43': 'Haute-Loire', '44': 'Loire-Atlantique',
-        '45': 'Loiret', '46': 'Lot', '47': 'Lot-et-Garonne', '48': 'Lozère', '49': 'Maine-et-Loire',
-        '50': 'Manche', '51': 'Marne', '52': 'Haute-Marne', '53': 'Mayenne', '54': 'Meurthe-et-Moselle',
-        '55': 'Meuse', '56': 'Morbihan', '57': 'Moselle', '58': 'Nièvre', '59': 'Nord',
-        '60': 'Oise', '61': 'Orne', '62': 'Pas-de-Calais', '63': 'Puy-de-Dôme', '64': 'Pyrénées-Atlantiques',
-        '65': 'Hautes-Pyrénées', '66': 'Pyrénées-Orientales', '67': 'Bas-Rhin', '68': 'Haut-Rhin', '69': 'Rhône',
-        '70': 'Haute-Saône', '71': 'Saône-et-Loire', '72': 'Sarthe', '73': 'Savoie', '74': 'Haute-Savoie',
-        '75': 'Paris', '76': 'Seine-Maritime', '77': 'Seine-et-Marne', '78': 'Yvelines', '79': 'Deux-Sèvres',
-        '80': 'Somme', '81': 'Tarn', '82': 'Tarn-et-Garonne', '83': 'Var', '84': 'Vaucluse',
-        '85': 'Vendée', '86': 'Vienne', '87': 'Haute-Vienne', '88': 'Vosges', '89': 'Yonne',
-        '90': 'Territoire de Belfort', '91': 'Essonne', '92': 'Hauts-de-Seine', '93': 'Seine-Saint-Denis',
-        '94': 'Val-de-Marne', '95': 'Val-d\'Oise', '971': 'Guadeloupe', '972': 'Martinique', 
-        '973': 'Guyane', '974': 'La Réunion', '976': 'Mayotte'
-    }
-    return noms_depts.get(code_dept, f'Département {code_dept}')
-
-
 def charger_donnees():  # Fonction principale de chargement des données
     """Charge et prépare les données DVF avec feature engineering"""
     print("📂 Chargement et nettoyage des données...\n")
@@ -884,18 +856,17 @@ def predire_departement(df_clean, code_departement):
     }
 
 
-def afficher_resultats(resultat):
+def afficher_resultats(resultat):  # Affiche résultats formatés de la prédiction
     """Affiche les résultats de la prédiction"""
-    if resultat is None:
-        print("❌ Données insuffisantes (minimum 5 ans requis)\n")
-        return
+    if resultat is None:  # Si aucun résultat (pas assez de données)
+        print("❌ Données insuffisantes (minimum 5 ans requis)\n")  # Message d'erreur
+        return  # Quitte la fonction
     
-    dept = resultat['departement']
-    nom_dept = obtenir_nom_departement(dept)
-    best = resultat['best_model_info']
+    dept = resultat['departement']  # Code département (ex: '75')
+    best = resultat['best_model_info']  # Infos du meilleur modèle
     
     print("="*100)
-    print(f"📊 PRÉDICTION POUR LE DÉPARTEMENT {dept} - {nom_dept}")
+    print(f"📊 PRÉDICTION POUR LE DÉPARTEMENT {dept}")  # Affichage simplifié sans nom complet
     print("="*100)
     
     print(f"\n🧠 MEILLEUR MODÈLE : {resultat['best_model_name']}")
@@ -977,18 +948,17 @@ def afficher_resultats(resultat):
     print("="*100 + "\n")
 
 
-def visualiser_prediction(resultat):
+def visualiser_prediction(resultat):  # Crée graphiques matplotlib de la prédiction
     """Visualisation avancée avec focus sur les métriques importantes"""
-    if resultat is None:
-        return
+    if resultat is None:  # Pas de résultat à afficher
+        return  # Quitte sans rien faire
     
-    dept = resultat['departement']
-    nom_dept = obtenir_nom_departement(dept)
+    dept = resultat['departement']  # Code département
     
-    plt.figure(figsize=(16, 12))
+    plt.figure(figsize=(16, 12))  # Crée figure matplotlib 16x12 pouces
     
     # Graphique 1 : Historique + Prédictions (plus grand)
-    plt.subplot(3, 2, (1, 2))  # Occupe 2 colonnes
+    plt.subplot(3, 2, (1, 2))  # Occupe 2 colonnes sur grille 3x2
     
     # Données réelles (lignes solides avec marqueurs)
     plt.plot(resultat['annees_train'], resultat['y_train'], 'o-', color='#2E86AB', linewidth=2.5, markersize=8, label='Train (données réelles)', alpha=0.9)
@@ -1010,12 +980,12 @@ def visualiser_prediction(resultat):
     future_prices = [d['prix_pred'] for d in resultat['future_data']]
     plt.plot(future_years, future_prices, 'D--', color='#C73E1D', linewidth=2.5, markersize=10, label='Futur 2025-2027', alpha=0.9)
     
-    plt.axvline(x=2024.5, color='gray', linestyle='--', linewidth=1, alpha=0.5)
-    plt.title(f"{dept} - {nom_dept} | Modèle: {resultat['best_model_name']} | R²={best['test_r2']:.3f}", fontsize=14, fontweight='bold')
-    plt.xlabel('Année', fontsize=12)
-    plt.ylabel('Prix au m² (€)', fontsize=12)
-    plt.grid(True, alpha=0.3)
-    plt.legend(fontsize=9, loc='best')
+    plt.axvline(x=2024.5, color='gray', linestyle='--', linewidth=1, alpha=0.5)  # Ligne verticale séparant historique/futur
+    plt.title(f"Département {dept} | Modèle: {resultat['best_model_name']} | R²={best['test_r2']:.3f}", fontsize=14, fontweight='bold')  # Titre simplifié
+    plt.xlabel('Année', fontsize=12)  # Label axe X
+    plt.ylabel('Prix au m² (€)', fontsize=12)  # Label axe Y
+    plt.grid(True, alpha=0.3)  # Grille transparente
+    plt.legend(fontsize=9, loc='best')  # Légende auto-positionnée
     
     # Graphique 2 : Diagnostic des erreurs
     if len(resultat['annees_test']) > 0:
@@ -1088,11 +1058,11 @@ def visualiser_prediction(resultat):
     plt.title('Résultat R² du Meilleur Modèle', fontsize=12, fontweight='bold')
     
     # Graphique 5 : Supprimé (remplacé par du texte explicatif)
-    plt.subplot(3, 2, 6)
-    plt.text(0.5, 0.6, "INFORMATION", fontsize=14, fontweight='bold', ha='center', transform=plt.gca().transAxes)
-    plt.text(0.5, 0.4, f"Département analysé:", fontsize=10, ha='center', transform=plt.gca().transAxes)
-    plt.text(0.5, 0.3, f"{dept} - {nom_dept}", fontsize=12, fontweight='bold', ha='center', transform=plt.gca().transAxes)
-    plt.text(0.5, 0.1, f"Années de données: {resultat['nb_annees']}", fontsize=10, ha='center', transform=plt.gca().transAxes)
+    plt.subplot(3, 2, 6)  # Position 6 sur grille 3x2
+    plt.text(0.5, 0.6, "INFORMATION", fontsize=14, fontweight='bold', ha='center', transform=plt.gca().transAxes)  # Titre centré
+    plt.text(0.5, 0.4, f"Département analysé:", fontsize=10, ha='center', transform=plt.gca().transAxes)  # Sous-titre
+    plt.text(0.5, 0.3, f"Code {dept}", fontsize=12, fontweight='bold', ha='center', transform=plt.gca().transAxes)  # Code département
+    plt.text(0.5, 0.1, f"Années de données: {resultat['nb_annees']}", fontsize=10, ha='center', transform=plt.gca().transAxes)  # Nb années
     
     # Supprimer les axes
     plt.gca().set_xlim(0, 1)
@@ -1228,4 +1198,3 @@ def main():
 #
 if __name__ == "__main__":
     main()  # Lance le programme principal
-
