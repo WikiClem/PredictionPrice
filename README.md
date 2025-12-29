@@ -28,6 +28,8 @@ Deux modèles de régression sont utilisés dans ce projet : Lasso, Ridge
 
 Ces modèles permettent de limiter le surapprentissage tout en identifiant les variables les plus pertinentes pour la prédiction des prix immobiliers.
 
+Pour pouvoir utiliser les fonctionnalité, il faut télécharger tout les fichier de data_annee du gouvernement de chaque année, puis lance le process ... 
+
 -------------------------------------------------------------------     
 
 structure demandée :     
@@ -51,4 +53,4 @@ projet_info/
 
 Lancez preprocess     
 
-Puis lancer main et écrire dans le terminal     
+Puis lancer main et écrire dans le terminal    
