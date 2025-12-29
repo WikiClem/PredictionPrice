@@ -30,7 +30,7 @@ Enrichissement des données historiques
 
 Modèles utilisés
 
-Deux modèles de régression régularisée sont utilisés dans ce projet :
+Deux modèles de régression sont utilisés dans ce projet :
 
 Lasso
 
@@ -62,3 +62,4 @@ projet_info/
 Lancez preprocess     
 
 Puis lancer main et écrire dans le terminal     
+
