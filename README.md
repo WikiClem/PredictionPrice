@@ -42,12 +42,11 @@ projet_info/
 │ ├── 019HexaSmal.csv     
 │ ├── departement-france.csv     
 │ ├── valeur-immobilier-1800-2020_cle2abd1f.xls     
-├── models/     
 ├── preprocess.py     
 ├── utils.py     
 ├── plot.py     
 ├── main.py     
-├── requirement.txt     
+├── READ_ME.md     
 
 -------------------------------------------------------------------     
 
