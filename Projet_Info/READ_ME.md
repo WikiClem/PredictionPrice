@@ -50,7 +50,6 @@ projet_info/
 │ ├── 019HexaSmal.csv     
 │ ├── departement-france.csv     
 │ ├── valeur-immobilier-1800-2020_cle2abd1f.xls     
-├── models/     
 ├── preprocess.py     
 ├── utils.py     
 ├── plot.py     
@@ -62,4 +61,5 @@ projet_info/
 Lancez preprocess     
 
 Puis lancer main et écrire dans le terminal     
+
 
