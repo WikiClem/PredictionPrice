@@ -54,12 +54,13 @@ projet_info/
 ├── utils.py     
 ├── plot.py     
 ├── main.py     
-├── requirement.txt     
+├── READ_ME.md     
 
 -------------------------------------------------------------------     
 
 Lancez preprocess     
 
 Puis lancer main et écrire dans le terminal     
+
 
 
