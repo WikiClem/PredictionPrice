@@ -18,23 +18,13 @@ https://www.data.gouv.fr/datasets/base-officielle-des-codes-postaux/
 departement-france.csv – Liste des départements français
 https://www.data.gouv.fr/datasets/departements-de-france/
 
-Enrichissement des données historiques
-
 019HexaSmal.csv – Base officielle des codes postaux
 https://www.data.gouv.fr/datasets/base-officielle-des-codes-postaux/
 
 departement-france.csv – Liste des départements français
 https://www.data.gouv.fr/datasets/departements-de-france/
 
-Enrichissement des données historiques
-
-Modèles utilisés
-
-Deux modèles de régression sont utilisés dans ce projet :
-
-Lasso
-
-Ridge
+Deux modèles de régression sont utilisés dans ce projet : Lasso, Ridge
 
 Ces modèles permettent de limiter le surapprentissage tout en identifiant les variables les plus pertinentes pour la prédiction des prix immobiliers.
 
